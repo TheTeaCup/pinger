@@ -8,4 +8,18 @@ const redis = new Redis({
   db: redisConfig.db,
 });
 
+/**
+ * get server
+ * redis.get("password-server")
+ * */
+
+/**
+ * set server
+ * redis.set("password-server", JSON.stringify({
+ *     id: "", // name
+ *     ip: "", // ip
+ *     lastUpdate: "", // last update
+ * }))
+ * */
+
 export default redis;
