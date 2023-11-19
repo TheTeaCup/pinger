@@ -1,7 +1,7 @@
 import Fastify from "fastify";
 import pino from "pino";
-import redis from "./utils/redis";
 import pingRouter from "./routers/ping";
+import fastifyFormBody from "@fastify/formbody";
 
 const server = Fastify({
   logger: pino({ level: "info" }),
@@ -11,6 +11,8 @@ const port = process.env.PORT || 5000;
 
 const start = async () => {
   try {
+    server.register(fastifyFormBody);
+
     server.setErrorHandler((error, request, reply) => {
       server.log.error(error);
     });

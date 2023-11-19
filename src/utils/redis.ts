@@ -10,12 +10,12 @@ const redis = new Redis({
 
 /**
  * get server
- * redis.get("password-server")
+ * redis.get("server-PASSWORD")
  * */
 
 /**
  * set server
- * redis.set("password-server", JSON.stringify({
+ * redis.set("server-PASSWORD", JSON.stringify({
  *     id: "", // name
  *     ip: "", // ip
  *     lastUpdate: "", // last update
