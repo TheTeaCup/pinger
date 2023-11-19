@@ -1,4 +1,4 @@
-import 'dotenv/config'
+import "dotenv/config";
 
 interface RedisConfig {
   port: number;
@@ -13,4 +13,3 @@ export const redisConfig: RedisConfig = {
   password: process.env.REDIS_PASSWORD || "",
   db: parseInt(process.env.REDIS_DB || "0", 10),
 };
-

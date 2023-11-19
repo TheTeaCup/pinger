@@ -1,4 +1,4 @@
-import Fastify, { FastifyInstance, RouteShorthandOptions } from "fastify";
+import Fastify from "fastify";
 import pino from "pino";
 import redis from "./utils/redis";
 import pingRouter from "./routers/ping";
