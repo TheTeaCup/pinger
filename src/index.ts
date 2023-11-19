@@ -18,42 +18,17 @@ const start = async () => {
     server.setNotFoundHandler((request, reply) => {
       reply.send({
         error: true,
-        message: "Route not found",
+        message: "route not found",
       });
     });
 
     server.register(pingRouter, { prefix: "/ping" });
 
     server.get("/", (request, reply) => {
-      try {
-        redis.get("hello", (err, result) => {
-          if (err) {
-            server.log.error(err);
-            reply.send({
-              error: true,
-              message: "Error getting value from Redis",
-            });
-          }
-
-          if (result) {
-            reply.send({
-              error: false,
-              hello: result,
-            });
-          } else {
-            reply.send({
-              error: true,
-              message: "No value for hello in Redis",
-            });
-          }
-        });
-      } catch (err) {
-        server.log.error(err);
-        reply.send({
-          error: true,
-          message: "Unknown error",
-        });
-      }
+      reply.send({
+        error: false,
+        message: "OK",
+      });
     });
 
     await server.listen({ port: Number(port) });
