@@ -70,6 +70,7 @@ async function pingRouter(fastify: FastifyInstance) {
             if (result) {
               const parsedResult = JSON.parse(result);
               parsedResult.lastUpdate = new Date().toISOString();
+              parsedResult.ip = request.ip;
 
               redis.set(
                 "server-" + request.headers.authorization,
